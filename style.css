@@ -1,0 +1,15 @@
+body {
+	background-color: whitesmoke;
+}
+/* 96px je vyska navigace poskladane vertikalne na malych zarizenich - bez marginu jsou na sm zarizenich H2 a prip. tlacitko schovane pod navigaci*/
+.container {
+	margin-top: 96px;
+}
+/* dle zadani maji byt odkazy v tabulkach podtrzene, coz v Bootstrapu neni defaultni nastaveni */
+td > a {
+	text-decoration: underline;
+}
+.img-fluid {
+	max-width: 99%;
+	height: auto;
+}

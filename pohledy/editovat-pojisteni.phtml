@@ -1,0 +1,43 @@
+<div class="container">
+	<h2 class="pb-lg-5">Editovat produkt <?= $produkt['poj_produkt'] ?> pojištěnce <?= $pojistenec['jmeno'] . ' ' . $pojistenec['prijmeni'] ?></h2>
+	<?php
+	echo $_zprava;
+	?>
+
+	<div class="row">	
+		<form action="" class="col" method="post">
+			<div class="d-sm-flex">
+				<div class="form-group col-md-8">
+					<label for="pojisteni">Pojištění</label>
+					<input class="form-control" name="poj_produkt" id="pojisteni" value="<?= htmlspecialchars($produkt['poj_produkt'] ) ?>" disabled>
+				</div>
+			</div>
+
+			<div class="d-sm-flex">
+				<div class="form-group col-md-4">
+					<label for="poj-castka">Pojistná částka</label>
+					<input type="number" class="form-control" id="poj-castka" name="poj_castka" placeholder="10000000" value="<?php if(isset($_POST['poj_castka'])) {echo htmlspecialchars($_POST['poj_castka']);} else {echo htmlspecialchars($produkt['poj_castka']);}?>">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="predmet-poj">Předmět pojištění</label>
+					<input type="text" class="form-control" id="predmet-poj" name="predmet_poj" placeholder="Byt" value="<?php if(isset($_POST['poj_castka'])) {echo htmlspecialchars($_POST['predmet_poj']);} else {echo htmlspecialchars($produkt['predmet_poj']);}?>">
+				</div>
+			</div>
+
+			<div class="d-sm-flex">
+				<div class="form-group col-md-4">
+					<label for="platnost-od">Platnost od:</label>
+					<input type="text" class="form-control" id="platnost-od" name="platnost_od" placeholder="1.1.2020" value="<?php if(isset($_POST['platnost_od'])) {echo htmlspecialchars($_POST['platnost_od']);} else {echo htmlspecialchars(FormatHelper::datumDoFormulare($produkt['platnost_od']));}?>">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="platnost-do">Platnost do:</label>
+					<input type="text" class="form-control" id="platnost-do" name="platnost_do" placeholder="31.12.2022" value="<?php if(isset($_POST['platnost_do'])) {echo htmlspecialchars($_POST['platnost_do']);} else {echo htmlspecialchars(FormatHelper::datumDoFormulare($produkt['platnost_do']));}?>">
+				</div>
+			</div>
+
+			<div class="d-sm-flex col-md-8 justify-content-center">
+				<input type="submit" class="btn btn-primary px-5 mt-lg-5" value="Aktualizovat">
+			</div>
+		</form>
+	</div>
+</div>
